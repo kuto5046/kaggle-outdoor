@@ -1,0 +1,40 @@
+# base
+seaborn==0.10.1
+numpy==1.19.5
+pandas==1.2.0
+icecream==2.0.0
+matplotlib==3.3.3
+scipy==1.6.0
+ipdb==0.13.4
+matplotlib-venn==0.11.6
+
+# 画像
+opencv-python==4.4.0.40
+
+# 音声
+# librosa==0.7.2
+# SoundFile==0.10.2
+# noisereduce==1.1.0
+
+# DL
+pytorch-lightning==1.2.3
+Albumentations==0.4.6
+resnest==0.0.5
+efficientnet-pytorch==0.6.3
+
+# ML
+kaggle==1.5.6
+optuna==2.6.0
+wandb==0.10.22
+scikit-learn==0.24.0
+xgboost==1.3.1
+lightgbm==3.1.1
+
+# other
+pathlib==1.0.1
+typing==3.7.4.3
+# jupyterlab==3.0.12
+# jupyterlab-git==0.23.3
+ipywidgets==7.6.3
+
+# jupyter
