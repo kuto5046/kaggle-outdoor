@@ -1,0 +1,46 @@
+globals:
+  seed: 1996
+  max_epochs: 100
+  n_splits: 5
+  use_folds:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+  debug: False
+  exp_message: snap
+  notes: snap to grid(loadではない)
+  only_pred: False
+  model_save: False
+  pretrained: False
+  pretrained_path: ../../model/exp001
+
+loss:
+  name: MSELoss
+  params:
+
+optimizer:
+  name: Adam
+  params:
+    lr: 0.01
+
+scheduler:
+  name: ReduceLROnPlateau
+  params:
+    factor: 0.9
+    patience: 3
+
+loader:
+  train:
+    batch_size: 512
+    shuffle: True
+    num_workers: 4
+  valid:
+    batch_size: 512
+    shuffle: False
+    num_workers: 4
+  test:
+    batch_size: 512
+    shuffle: False
+    num_workers: 4
