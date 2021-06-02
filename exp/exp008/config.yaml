@@ -1,0 +1,16 @@
+globals:
+  seed: 1996
+  n_splits: 5
+  use_folds:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+  debug: False
+  exp_message: delta_baseline
+  notes: delta推定モデルのbaseline imu_v2を使用 for lightGBM
+  only_pred: False
+  model_save: False
+  pretrained: False
+  pretrained_path: ../../model/exp001

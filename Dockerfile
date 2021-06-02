@@ -29,7 +29,7 @@ RUN apt-get -y update && apt-get install -y \
     libsndfile1 \
     zsh \
     xonsh \
-    neovim \
+    # neovim \
     nodejs \
     npm \
     curl
@@ -47,6 +47,15 @@ RUN npm -y install n -g && \
 
 # set path
 ENV PATH /usr/bin:$PATH
+
+RUN wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+RUN chmod u+x nvim.appimage
+# RUN ./nvim.appimage --appimage-extract
+# RUN ./squashfs-root/AppRun --version
+
+# Optional: exposing nvim globally
+# RUN mv squashfs-root / && ln -s /squashfs-root/AppRun /usr/bin/nvim
+RUN /usr/bin/nvim
 
 # install common python packages
 COPY ./requirements.txt /
@@ -70,6 +79,7 @@ RUN useradd -m --uid ${DOCKER_UID} --groups sudo ${DOCKER_USER} \
 # for user
 RUN mkdir /home/${DOCKER_USER}/.kaggle
 COPY ./kaggle.json /home/${DOCKER_USER}/.kaggle/
+
 # set working directory
 RUN mkdir /home/${DOCKER_USER}/work
 WORKDIR /home/${DOCKER_USER}/work
@@ -100,3 +110,5 @@ RUN jupyter labextension install \
     @jupyterlab/toc
     # @kiteco/jupyterlab-kite
     # @ryantam626/jupyterlab_code_formatter 
+# RUN jupyter labextension install jupyterlab-plotly@4.14.3   
+# RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager plotlywidget@4.14.3
