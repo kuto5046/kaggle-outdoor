@@ -1,3 +1,11 @@
+# own setttings
+input 
+exp/*/wandb
+model
+*pdf
+kaggle.json
+.vscode
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
