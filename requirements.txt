@@ -36,5 +36,6 @@ typing==3.7.4.3
 # jupyterlab==3.0.12
 # jupyterlab-git==0.23.3
 ipywidgets==7.6.3
+streamlit==0.82.0
 
 # jupyter

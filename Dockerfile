@@ -29,7 +29,7 @@ RUN apt-get -y update && apt-get install -y \
     libsndfile1 \
     zsh \
     xonsh \
-    # neovim \
+    neovim \
     nodejs \
     npm \
     curl
@@ -48,14 +48,6 @@ RUN npm -y install n -g && \
 # set path
 ENV PATH /usr/bin:$PATH
 
-RUN wget https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
-RUN chmod u+x nvim.appimage
-# RUN ./nvim.appimage --appimage-extract
-# RUN ./squashfs-root/AppRun --version
-
-# Optional: exposing nvim globally
-# RUN mv squashfs-root / && ln -s /squashfs-root/AppRun /usr/bin/nvim
-RUN /usr/bin/nvim
 
 # install common python packages
 COPY ./requirements.txt /
@@ -68,6 +60,7 @@ RUN pip3 install torch==1.7.0+cu110 torchvision==0.8.1+cu110 -f https://download
 EXPOSE 8888
 EXPOSE 5000
 EXPOSE 6006
+EXPOSE 8501
 
 # add user
 ARG DOCKER_UID=1000
@@ -112,3 +105,12 @@ RUN jupyter labextension install \
     # @ryantam626/jupyterlab_code_formatter 
 # RUN jupyter labextension install jupyterlab-plotly@4.14.3   
 # RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager plotlywidget@4.14.3
+
+
+# RUN curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+# RUN chmod u+x nvim.appimage
+# RUN ./squashfs-root/AppRun --version --appimage-extract
+# RUN ./squashfs-root/AppRun --version
+
+# # Optional: exposing nvim globally
+# RUN ln -s ./squashfs-root/AppRun /usr/bin/nvim
