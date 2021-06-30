@@ -38,4 +38,6 @@ typing==3.7.4.3
 ipywidgets==7.6.3
 streamlit==0.82.0
 
-# jupyter
+# geometric
+simplekml
+geopandas 
