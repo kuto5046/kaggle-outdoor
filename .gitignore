@@ -10,10 +10,10 @@ kaggle.json
 __pycache__/
 *.py[cod]
 *$py.class
-
+notebook/data/
 # C extensions
 *.so
-
+*.csv
 # Distribution / packaging
 .Python
 build/

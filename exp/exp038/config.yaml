@@ -1,0 +1,13 @@
+globals:
+  seed: 1996
+  max_epochs: 100
+  n_splits: 5
+  use_folds:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+  debug: False
+  exp_message: stop_mean
+  notes: MLで求めた速度を元に止まっているものは平均する
