@@ -1,4 +1,5 @@
 import sys
+import random
 import simplekml
 import pandas as pd
 
@@ -13,7 +14,6 @@ def main():
     print(path)
     df = pd.read_csv(path)
     names = df["phone"].unique()
-
     kml = simplekml.Kml(open=1)
     for name_ in names:
         temp  = df[df["phone"] == name_]
@@ -22,7 +22,11 @@ def main():
             temp_.append(tuple(ele))
         linestring = kml.newlinestring(name = name_)
         linestring.style.linestyle.width = 30
-    #     linestring.style.linestyle.color = simplekml.Color.azure
+        r = random.randint(0,255)
+        g = random.randint(0,255)
+        b = random.randint(0,255)
+        linestring.style.linestyle.color = simplekml.Color.rgb(r,g,b)
+        # linestring.style.linestyle.color = simplekml.ColorMode.random
         linestring.coords = temp_
     save_name = path.split('.')[0]
     kml.savekmz(f'{save_name}.kmz')
